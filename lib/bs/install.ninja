@@ -1,0 +1,50 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o App.cmi : cp ../bs/src/App.cmi
+o App.cmj : cp ../bs/src/App.cmj
+o App.cmt : cp ../bs/src/App.cmt
+o App.res : cp ../../src/App.res
+o History.cmi : cp ../bs/src/Components/HistoryCard/History.cmi
+o History.cmj : cp ../bs/src/Components/HistoryCard/History.cmj
+o History.cmt : cp ../bs/src/Components/HistoryCard/History.cmt
+o History.res : cp ../../src/Components/HistoryCard/History.res
+o ListItem.cmi : cp ../bs/src/Components/HistoryCard/ListItem.cmi
+o ListItem.cmj : cp ../bs/src/Components/HistoryCard/ListItem.cmj
+o ListItem.cmt : cp ../bs/src/Components/HistoryCard/ListItem.cmt
+o ListItem.res : cp ../../src/Components/HistoryCard/ListItem.res
+o HistoryList.cmi : cp ../bs/src/Components/HistoryCard/HistoryList.cmi
+o HistoryList.cmj : cp ../bs/src/Components/HistoryCard/HistoryList.cmj
+o HistoryList.cmt : cp ../bs/src/Components/HistoryCard/HistoryList.cmt
+o HistoryList.res : cp ../../src/Components/HistoryCard/HistoryList.res
+o Header.cmi : cp ../bs/src/Components/Header/Header.cmi
+o Header.cmj : cp ../bs/src/Components/Header/Header.cmj
+o Header.cmt : cp ../bs/src/Components/Header/Header.cmt
+o Header.res : cp ../../src/Components/Header/Header.res
+o DetailWidget.cmi : cp ../bs/src/Components/Header/DetailWidget.cmi
+o DetailWidget.cmj : cp ../bs/src/Components/Header/DetailWidget.cmj
+o DetailWidget.cmt : cp ../bs/src/Components/Header/DetailWidget.cmt
+o DetailWidget.res : cp ../../src/Components/Header/DetailWidget.res
+o InputForm.cmi : cp ../bs/src/Components/InputForm/InputForm.cmi
+o InputForm.cmj : cp ../bs/src/Components/InputForm/InputForm.cmj
+o InputForm.cmt : cp ../bs/src/Components/InputForm/InputForm.cmt
+o InputForm.res : cp ../../src/Components/InputForm/InputForm.res
+o LoginPage.cmi : cp ../bs/src/Components/LoginPage/LoginPage.cmi
+o LoginPage.cmj : cp ../bs/src/Components/LoginPage/LoginPage.cmj
+o LoginPage.cmt : cp ../bs/src/Components/LoginPage/LoginPage.cmt
+o LoginPage.res : cp ../../src/Components/LoginPage/LoginPage.res
+o LoginState.cmi : cp ../bs/src/Components/LoginPage/LoginState.cmi
+o LoginState.cmj : cp ../bs/src/Components/LoginPage/LoginState.cmj
+o LoginState.cmt : cp ../bs/src/Components/LoginPage/LoginState.cmt
+o LoginState.res : cp ../../src/Components/LoginPage/LoginState.res
+o Types.cmi : cp ../bs/src/Components/Types/Types.cmi
+o Types.cmj : cp ../bs/src/Components/Types/Types.cmj
+o Types.cmt : cp ../bs/src/Components/Types/Types.cmt
+o Types.res : cp ../../src/Components/Types/Types.res
+o Converter.cmi : cp ../bs/src/Components/UI/Converter.cmi
+o Converter.cmj : cp ../bs/src/Components/UI/Converter.cmj
+o Converter.cmt : cp ../bs/src/Components/UI/Converter.cmt
+o Converter.res : cp ../../src/Components/UI/Converter.res
+build install.stamp : touch App.cmi App.cmj History.cmi History.cmj ListItem.cmi ListItem.cmj HistoryList.cmi HistoryList.cmj Header.cmi Header.cmj DetailWidget.cmi DetailWidget.cmj InputForm.cmi InputForm.cmj LoginPage.cmi LoginPage.cmj LoginState.cmi LoginState.cmj Types.cmi Types.cmj Converter.cmi Converter.cmj 

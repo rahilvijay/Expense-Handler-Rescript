@@ -1,0 +1,40 @@
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    
+}
+
+.form-controls {
+    margin:.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.form-controls input {
+    background-color: white;
+    border: 1px solid black;
+    height: 3rem;
+
+}
+.form-controls label {
+font-weight: 400;
+}
+.form-controls p {
+    font-size: 1rem;
+    font-weight: 400;
+
+}
+.form button {
+    margin: 2rem 0;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    outline: none;
+height: 2rem;
+margin: 2rem;
+}
+.warning {
+    color: red;
+    font-weight: 300;
+}

@@ -1,0 +1,23 @@
+
+.display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    margin: 2rem;
+    box-shadow: .5rem .4rem #cccc;
+    border-radius: .5rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.expense {
+    font-size: 2rem;
+    color: red;
+    margin-top:0 ;
+}
+.income {
+    font-size: 2rem;
+    color: green;
+    margin-top:0 ;
+}

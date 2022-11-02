@@ -1,0 +1,44 @@
+rescript = 1
+g_finger := /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/@rescript/react/lib/ocaml/install.stamp
+rule astj
+  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
+rule deps
+  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 792a114df71b1975b927d002c1a3737a $in
+  restat = 1
+o src/App.d : deps src/App.ast
+rule mij
+  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsc.exe -I src/Components/UI -I src/Components/Types -I src/Components/LoginPage -I src/Components/InputForm -I src/Components/Header -I src/Components/HistoryCard -I src/Components -I src -I /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/@rescript/react/lib/ocaml   -bs-package-name your-project-name -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/Components/HistoryCard/History.ast : astj ../../src/Components/HistoryCard/History.res
+o src/Components/HistoryCard/History.d : deps src/Components/HistoryCard/History.ast
+o src/Components/HistoryCard/History.cmj src/Components/HistoryCard/History.cmi ../../src/Components/HistoryCard/History.bs.js : mij src/Components/HistoryCard/History.ast
+o src/Components/HistoryCard/ListItem.ast : astj ../../src/Components/HistoryCard/ListItem.res
+o src/Components/HistoryCard/ListItem.d : deps src/Components/HistoryCard/ListItem.ast
+o src/Components/HistoryCard/ListItem.cmj src/Components/HistoryCard/ListItem.cmi ../../src/Components/HistoryCard/ListItem.bs.js : mij src/Components/HistoryCard/ListItem.ast
+o src/Components/HistoryCard/HistoryList.ast : astj ../../src/Components/HistoryCard/HistoryList.res
+o src/Components/HistoryCard/HistoryList.d : deps src/Components/HistoryCard/HistoryList.ast
+o src/Components/HistoryCard/HistoryList.cmj src/Components/HistoryCard/HistoryList.cmi ../../src/Components/HistoryCard/HistoryList.bs.js : mij src/Components/HistoryCard/HistoryList.ast
+o src/Components/Header/Header.ast : astj ../../src/Components/Header/Header.res
+o src/Components/Header/Header.d : deps src/Components/Header/Header.ast
+o src/Components/Header/Header.cmj src/Components/Header/Header.cmi ../../src/Components/Header/Header.bs.js : mij src/Components/Header/Header.ast
+o src/Components/Header/DetailWidget.ast : astj ../../src/Components/Header/DetailWidget.res
+o src/Components/Header/DetailWidget.d : deps src/Components/Header/DetailWidget.ast
+o src/Components/Header/DetailWidget.cmj src/Components/Header/DetailWidget.cmi ../../src/Components/Header/DetailWidget.bs.js : mij src/Components/Header/DetailWidget.ast
+o src/Components/InputForm/InputForm.ast : astj ../../src/Components/InputForm/InputForm.res
+o src/Components/InputForm/InputForm.d : deps src/Components/InputForm/InputForm.ast
+o src/Components/InputForm/InputForm.cmj src/Components/InputForm/InputForm.cmi ../../src/Components/InputForm/InputForm.bs.js : mij src/Components/InputForm/InputForm.ast
+o src/Components/LoginPage/LoginPage.ast : astj ../../src/Components/LoginPage/LoginPage.res
+o src/Components/LoginPage/LoginPage.d : deps src/Components/LoginPage/LoginPage.ast
+o src/Components/LoginPage/LoginPage.cmj src/Components/LoginPage/LoginPage.cmi ../../src/Components/LoginPage/LoginPage.bs.js : mij src/Components/LoginPage/LoginPage.ast
+o src/Components/LoginPage/LoginState.ast : astj ../../src/Components/LoginPage/LoginState.res
+o src/Components/LoginPage/LoginState.d : deps src/Components/LoginPage/LoginState.ast
+o src/Components/LoginPage/LoginState.cmj src/Components/LoginPage/LoginState.cmi ../../src/Components/LoginPage/LoginState.bs.js : mij src/Components/LoginPage/LoginState.ast
+o src/Components/Types/Types.ast : astj ../../src/Components/Types/Types.res
+o src/Components/Types/Types.d : deps src/Components/Types/Types.ast
+o src/Components/Types/Types.cmj src/Components/Types/Types.cmi ../../src/Components/Types/Types.bs.js : mij src/Components/Types/Types.ast
+o src/Components/UI/Converter.ast : astj ../../src/Components/UI/Converter.res
+o src/Components/UI/Converter.d : deps src/Components/UI/Converter.ast
+o src/Components/UI/Converter.cmj src/Components/UI/Converter.cmi ../../src/Components/UI/Converter.bs.js : mij src/Components/UI/Converter.ast
