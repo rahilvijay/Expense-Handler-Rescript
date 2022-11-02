@@ -1,0 +1,31 @@
+
+.lpgin-form {
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+height:30rem;
+width: 20rem;
+margin: auto;
+}
+
+.form_controls {
+    display: flex;
+    height: 5rem;
+}
+label {
+    font-size: 2rem;
+}
+input {
+    width: 10rem;
+    height: 3rem;
+}
+.warning-text {
+    color:red;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+}
+
