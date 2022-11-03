@@ -2,20 +2,16 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
+import * as LoginState from "./LoginState.bs.js";
 
 import './LoginPage.css';
 ;
-
-var initialState = {
-  username: "",
-  password: ""
-};
 
 function LoginPage(Props) {
   var handleLogin = Props.handleLogin;
   var loginState = Props.loginState;
   var match = React.useState(function () {
-        return initialState;
+        return LoginState.initial;
       });
   var setInputState = match[1];
   var inputState = match[0];
@@ -74,7 +70,6 @@ function LoginPage(Props) {
 var make = LoginPage;
 
 export {
-  initialState ,
   make ,
 }
 /*  Not a pure module */

@@ -1,4 +1,6 @@
 type t = {
-    username: string,
-    password: string
+  username: string,
+  password: string,
 }
+
+let initial: t = {username: "", password: ""}

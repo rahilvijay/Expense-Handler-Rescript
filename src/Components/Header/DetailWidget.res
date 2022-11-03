@@ -1,17 +1,20 @@
-
 %%raw(`import './DetailWidget.css';`)
 
-
 @react.component
-let make = (~subtotals:Subtotals.t) => {
-     <div className="display">
+let make = (~subtotals: Subtotals.t) => {
+  Js.log(subtotals.income)
+  <div className="display">
     <div>
-    <p>{StaticText.dtwHeading1 ->React.string}</p>
-    <p className = "income"><Converter amount = {subtotals.income} /></p>
+      <p> {"INCOME"->React.string} </p>
+      <p className="income">
+        <Converter amount={subtotals.income} />
+      </p>
     </div>
     <div>
-    <p>{StaticText.dtwHeading2->React.string}</p>
-    <p className = "expense"><Converter amount = {subtotals.expense} /> </p>
+      <p> {"EXPENSE"->React.string} </p>
+      <p className="expense">
+        <Converter amount={subtotals.expense} />
+      </p>
     </div>
-        </div>
+  </div>
 }

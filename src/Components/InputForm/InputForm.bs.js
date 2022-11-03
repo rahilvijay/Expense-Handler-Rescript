@@ -3,15 +3,14 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import * as Belt_Float from "rescript/lib/es6/belt_Float.js";
-import * as InputState from "./InputState.bs.js";
-import * as StaticText from "../StaticText.bs.js";
+import * as InputState from "../Types/InputState.bs.js";
 
 import './InputForm.css';
 ;
 
 function reducer(state, action) {
   if (typeof action === "number") {
-    return InputState.intial;
+    return InputState.initial;
   }
   switch (action.TAG | 0) {
     case /* SetRemarkValue */0 :
@@ -96,13 +95,13 @@ function reducer(state, action) {
 
 function InputForm(Props) {
   var addItem = Props.addItem;
-  var match = React.useReducer(reducer, InputState.intial);
+  var match = React.useReducer(reducer, InputState.initial);
   var dispatch = match[1];
   var inputState = match[0];
   var onRemarkChangeHandler = function ($$event) {
     var value = $$event.target.value;
     Curry._1(dispatch, {
-          TAG: /* SetRemarkValue */0,
+          TAG: /* SetRemarkValidState */2,
           _0: value
         });
     Curry._1(dispatch, {
@@ -130,7 +129,7 @@ function InputForm(Props) {
           _0: true
         });
     Curry._1(dispatch, {
-          TAG: /* SetRemarkTouchState */5,
+          TAG: /* SetAmountTouchState */4,
           _0: true
         });
     if (inputState.titleState && inputState.amountState) {
@@ -157,8 +156,8 @@ function InputForm(Props) {
                   className: "warning"
                 }, !inputState.amountState && inputState.amountTouched ? "Please correct Input" : ""), React.createElement("div", {
                   className: "form-controls"
-                }, React.createElement("label", undefined, StaticText.inputFormLabel1), React.createElement("input", {
-                      placeholder: StaticText.inputFOrmPH1,
+                }, React.createElement("label", undefined, "Remark"), React.createElement("input", {
+                      placeholder: "Please Enter Remarks",
                       type: "text",
                       value: inputState.title,
                       onBlur: (function (param) {
@@ -170,8 +169,8 @@ function InputForm(Props) {
                       onChange: onRemarkChangeHandler
                     })), React.createElement("div", {
                   className: "form-controls"
-                }, React.createElement("label", undefined, StaticText.inputFormLabel2), React.createElement("p", undefined, StaticText.inputFormInfo), React.createElement("input", {
-                      placeholder: StaticText.inputFOrmPH2,
+                }, React.createElement("label", undefined, "Amount"), React.createElement("p", undefined, "Please enter with a negative sign for expenses"), React.createElement("input", {
+                      placeholder: "Please Enter Amount",
                       step: 0.01,
                       type: "number",
                       value: inputState.amount,

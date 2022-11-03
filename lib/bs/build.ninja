@@ -4,7 +4,7 @@ rule astj
   command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
 o src/App.ast : astj ../../src/App.res
 rule deps
-  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 73e8b3cec2dad73b5755b8a8e41cb944 $in
+  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 7bb21fc5e3bd8013b3a5a71b717eafc2 $in
   restat = 1
 o src/App.d : deps src/App.ast
 rule mij
@@ -33,12 +33,6 @@ o src/Components/Header/DetailWidget.cmj src/Components/Header/DetailWidget.cmi 
 o src/Components/InputForm/InputForm.ast : astj ../../src/Components/InputForm/InputForm.res
 o src/Components/InputForm/InputForm.d : deps src/Components/InputForm/InputForm.ast
 o src/Components/InputForm/InputForm.cmj src/Components/InputForm/InputForm.cmi ../../src/Components/InputForm/InputForm.bs.js : mij src/Components/InputForm/InputForm.ast
-o src/Components/InputForm/InputState.ast : astj ../../src/Components/InputForm/InputState.res
-o src/Components/InputForm/InputState.d : deps src/Components/InputForm/InputState.ast
-o src/Components/InputForm/InputState.cmj src/Components/InputForm/InputState.cmi ../../src/Components/InputForm/InputState.bs.js : mij src/Components/InputForm/InputState.ast
-o src/Components/InputForm/ReducerAction.ast : astj ../../src/Components/InputForm/ReducerAction.res
-o src/Components/InputForm/ReducerAction.d : deps src/Components/InputForm/ReducerAction.ast
-o src/Components/InputForm/ReducerAction.cmj src/Components/InputForm/ReducerAction.cmi ../../src/Components/InputForm/ReducerAction.bs.js : mij src/Components/InputForm/ReducerAction.ast
 o src/Components/LoginPage/LoginPage.ast : astj ../../src/Components/LoginPage/LoginPage.res
 o src/Components/LoginPage/LoginPage.d : deps src/Components/LoginPage/LoginPage.ast
 o src/Components/LoginPage/LoginPage.cmj src/Components/LoginPage/LoginPage.cmi ../../src/Components/LoginPage/LoginPage.bs.js : mij src/Components/LoginPage/LoginPage.ast
@@ -57,6 +51,12 @@ o src/Components/Types/InputData.cmj src/Components/Types/InputData.cmi ../../sr
 o src/Components/Types/Subtotals.ast : astj ../../src/Components/Types/Subtotals.res
 o src/Components/Types/Subtotals.d : deps src/Components/Types/Subtotals.ast
 o src/Components/Types/Subtotals.cmj src/Components/Types/Subtotals.cmi ../../src/Components/Types/Subtotals.bs.js : mij src/Components/Types/Subtotals.ast
+o src/Components/Types/InputState.ast : astj ../../src/Components/Types/InputState.res
+o src/Components/Types/InputState.d : deps src/Components/Types/InputState.ast
+o src/Components/Types/InputState.cmj src/Components/Types/InputState.cmi ../../src/Components/Types/InputState.bs.js : mij src/Components/Types/InputState.ast
+o src/Components/Types/ReducerAction.ast : astj ../../src/Components/Types/ReducerAction.res
+o src/Components/Types/ReducerAction.d : deps src/Components/Types/ReducerAction.ast
+o src/Components/Types/ReducerAction.cmj src/Components/Types/ReducerAction.cmi ../../src/Components/Types/ReducerAction.bs.js : mij src/Components/Types/ReducerAction.ast
 o src/Components/UI/Converter.ast : astj ../../src/Components/UI/Converter.res
 o src/Components/UI/Converter.d : deps src/Components/UI/Converter.ast
 o src/Components/UI/Converter.cmj src/Components/UI/Converter.cmi ../../src/Components/UI/Converter.bs.js : mij src/Components/UI/Converter.ast
