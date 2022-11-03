@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    margin-left:2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.header-para {
+    margin: 0;
+    margin: 2rem;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+.header-amount {
+    font-size: 3rem;
+    margin: 0;
+    margin-left: 2rem;
+}
