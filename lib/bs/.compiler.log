@@ -1,40 +1,14 @@
-#Start(1667387446662)
+#Start(1667458270402)
 
   Warning number 27
-  /Users/rahilvijay/Desktop/rescript/Expense-Handler/src/App.res:12:6-14
+  /Users/rahilvijay/Desktop/rescript/Expense-Handler/src/Components/HistoryCard/ListItem.res:12:21
 
-  10 │ let(expenses:Types.expenses,setExpenses) = React.useState(_=>initialExp
-     │ ense);
-  11 │ let (nextId:int,setNextId) = React.useState(_=>2)
-  12 │ let (subtotals,setSubtotals) = React.useState(_=>initialTotals)
-  13 │ let (loginState,setLoLogjinState)= React.useState(_=>false);
-  14 │ 
+  10 │                 let expenseItemStyle = "item red";
+  11 │ 
+  12 │ let clickHandler = (e) => {
+  13 │       
+  14 │         onRemoveItem(id)
 
-  unused variable subtotals.
+  unused variable e.
 
-
-  Warning number 26
-  /Users/rahilvijay/Desktop/rescript/Expense-Handler/src/App.res:27:5-21
-
-  25 │          
-  26 │ 
-  27 │ let removeItemHandler=(ab:int) => {
-  28 │       setExpenses(prev=>Js.Array2.filter(prev,expense=>expense.id!=ab))
-  29 │                   setNextId(prev=>prev-1)
-
-  unused variable removeItemHandler.
-
-
-  Warning number 26
-  /Users/rahilvijay/Desktop/rescript/Expense-Handler/src/App.res:32:5-14
-
-  30 │ }
-  31 │ 
-  32 │ let addExpense = (a:Types.data) => {
-  33 │       let value:Types.expense = {id:nextId,title:a.title,amount:a.amoun
-     │ t} 
-  34 │       setExpenses(prev=>Js.Array2.concat(prev,[value]))
-
-  unused variable addExpense.
-
-#Done(1667387446703)
+#Done(1667458270435)

@@ -13,14 +13,12 @@ function ListItem(Props) {
   var id = Props.id;
   var onRemoveItem = Props.onRemoveItem;
   var clickHandler = function (e) {
-    console.log(id);
-    console.log(e);
     Curry._1(onRemoveItem, id);
   };
-  var stylesString = amount > 0.0 ? "item green" : "item red";
+  var stylesString1 = amount > 0.0 ? "item green" : "item red";
   return React.createElement("li", {
               key: String(id),
-              className: stylesString
+              className: stylesString1
             }, React.createElement("span", undefined, React.createElement("button", {
                       onClick: clickHandler
                     }, "x"), title), React.createElement("span", undefined, React.createElement(Converter.make, {

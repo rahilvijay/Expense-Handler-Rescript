@@ -3,16 +3,15 @@
 
 
 @react.component
-let make = (~subtotals:Types.subtotals) => {
-    Js.log(subtotals.income)
+let make = (~subtotals:Subtotals.t) => {
      <div className="display">
     <div>
-    <p>{"INCOME"->React.string}</p>
-    <p className="income"><Converter amount={subtotals.income} /></p>
+    <p>{StaticText.dtwHeading1 ->React.string}</p>
+    <p className = "income"><Converter amount = {subtotals.income} /></p>
     </div>
     <div>
-    <p>{"EXPENSE"->React.string}</p>
-    <p className="expense"><Converter amount={subtotals.expense} /> </p>
+    <p>{StaticText.dtwHeading2->React.string}</p>
+    <p className = "expense"><Converter amount = {subtotals.expense} /> </p>
     </div>
         </div>
 }

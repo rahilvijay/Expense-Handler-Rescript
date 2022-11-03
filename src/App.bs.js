@@ -2,7 +2,11 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
+import * as Header from "./Components/Header/Header.bs.js";
+import * as $$History from "./Components/HistoryCard/History.bs.js";
+import * as InputForm from "./Components/InputForm/InputForm.bs.js";
 import * as LoginPage from "./Components/LoginPage/LoginPage.bs.js";
+import * as Subtotals from "./Components/Types/Subtotals.bs.js";
 import LogoSvg from "./logo.svg";
 
 var logo = LogoSvg;
@@ -12,47 +16,59 @@ import './App.css';
 
 var initialExpense = [];
 
-var initialTotals = {
-  income: 0.0,
-  expense: 0.0
-};
-
 function App(Props) {
   var match = React.useState(function () {
-        return initialExpense;
+        return [];
       });
+  var setExpenses = match[1];
   var expenses = match[0];
-  React.useState(function () {
+  var match$1 = React.useState(function () {
         return 2;
       });
-  var match$1 = React.useState(function () {
-        return initialTotals;
-      });
-  var setSubtotals = match$1[1];
+  var setNextId = match$1[1];
+  var nextId = match$1[0];
   var match$2 = React.useState(function () {
+        return Subtotals.initialSubTotals;
+      });
+  var setSubtotals = match$2[1];
+  var match$3 = React.useState(function () {
         return false;
       });
-  var setLoLogjinState = match$2[1];
+  var setLoLogjinState = match$3[1];
+  var loginState = match$3[0];
   React.useEffect((function () {
           Curry._1(setSubtotals, (function (param) {
                   return {
-                          income: expenses.reduce((function (sum, expense) {
-                                  if (expense.amount > 0.0) {
-                                    return expense.amount + sum;
-                                  } else {
-                                    return sum;
-                                  }
-                                }), 0.0),
-                          expense: expenses.reduce((function (sum, expense) {
-                                  if (expense.amount < 0.0) {
-                                    return sum + expense.amount;
-                                  } else {
-                                    return sum;
-                                  }
-                                }), 0.0)
+                          income: Subtotals.calculate_Subtotal(expenses, "income"),
+                          expense: Subtotals.calculate_Subtotal(expenses, "expense")
                         };
                 }));
         }), [expenses]);
+  var removeItemHandler = function (ab) {
+    Curry._1(setExpenses, (function (prev) {
+            return prev.filter(function (expense) {
+                        return expense.id !== ab;
+                      });
+          }));
+    Curry._1(setNextId, (function (prev) {
+            return prev - 1 | 0;
+          }));
+  };
+  var addExpense = function (a) {
+    var value_title = a.title;
+    var value_amount = a.amount;
+    var value = {
+      id: nextId,
+      title: value_title,
+      amount: value_amount
+    };
+    Curry._1(setExpenses, (function (prev) {
+            return prev.concat([value]);
+          }));
+    Curry._1(setNextId, (function (prev) {
+            return prev + 1 | 0;
+          }));
+  };
   var loginHandler = function (data) {
     if (data.username !== "" && data.password !== "") {
       return Curry._1(setLoLogjinState, (function (param) {
@@ -63,10 +79,17 @@ function App(Props) {
   };
   return React.createElement("div", {
               className: "app"
-            }, React.createElement(LoginPage.make, {
-                  handleLogin: loginHandler,
-                  loginState: match$2[0]
-                }));
+            }, loginState ? React.createElement("div", undefined, React.createElement(Header.make, {
+                        subtotal: match$2[0]
+                      }), React.createElement($$History.make, {
+                        expenses: expenses,
+                        onRemoveItem: removeItemHandler
+                      }), React.createElement(InputForm.make, {
+                        addItem: addExpense
+                      })) : React.createElement(LoginPage.make, {
+                    handleLogin: loginHandler,
+                    loginState: loginState
+                  }));
 }
 
 var make = App;
@@ -74,7 +97,6 @@ var make = App;
 export {
   logo ,
   initialExpense ,
-  initialTotals ,
   make ,
 }
 /* logo Not a pure module */

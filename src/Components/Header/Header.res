@@ -2,7 +2,8 @@
 
 
 @react.component
-let make = (~subtotal:Types.subtotals) => {
+let make = (~subtotal:Subtotals.t) => {
+
     let total = subtotal.income +. subtotal.expense
     
 
@@ -10,9 +11,9 @@ let make = (~subtotal:Types.subtotals) => {
 
 
     <div className="header">
-<h3>{"Expense Tracker"->React.string}</h3>
+<h3>{StaticText.headerHeading->React.string}</h3>
 
-<p className="header-para">{"Balance"->React.string}</p>
+<p className="header-para">{StaticText.headerText->React.string}</p>
 <p className="header-amount"><Converter amount ={total} /></p>
 
 <DetailWidget subtotals ={subtotal} />

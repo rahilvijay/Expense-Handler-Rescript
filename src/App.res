@@ -1,23 +1,27 @@
 @module("./logo.svg") external logo: string = "default"
 
 %%raw(`import './App.css';`)
-type addExpense = (Types.data, Types.expenses) => unit
-let initialExpense:Types.expenses = [];
-let initialTotals:Types.subtotals = {income:0.0,expense:0.0}
+
+
+let initialExpense:array<Expense.t> = [];
+
+
+
+
 
 @react.component
 let make = () => {
-let(expenses:Types.expenses,setExpenses) = React.useState(_=>initialExpense);
-let (nextId:int,setNextId) = React.useState(_=>2)
-let (subtotals,setSubtotals) = React.useState(_=>initialTotals)
+let(expenses :array<Expense.t>,setExpenses) = React.useState(_=>[]);
+let (nextId :int,setNextId) = React.useState(_=>2);
+let (subtotals,setSubtotals) = React.useState(_=>Subtotals.initialSubTotals);
 let (loginState,setLoLogjinState)= React.useState(_=>false);
 
 
 
 React.useEffect1(() => {
 
-       setSubtotals(_=>{income:Js.Array2.reduce(expenses,(sum,expense)=>expense.amount>0.0 ? expense.amount +. sum:sum,0.0),
-                        expense:Js.Array2.reduce(expenses,(sum,expense)=>expense.amount<0.0?sum+.expense.amount:sum,0.0)
+       setSubtotals(_=>{income:Subtotals.calculate_Subtotal(expenses,"income"),
+                        expense:Subtotals.calculate_Subtotal(expenses,"expense")
                         })
 
 None
@@ -29,11 +33,10 @@ let removeItemHandler=(ab:int) => {
                   setNextId(prev=>prev-1)
 }
 
-let addExpense = (a:Types.data) => {
-      let value:Types.expense = {id:nextId,title:a.title,amount:a.amount} 
+let addExpense: (InputData.t) => unit = (a:InputData.t) => {
+      let value:Expense.t = {id:nextId,title:a.title,amount:a.amount} 
       setExpenses(prev=>Js.Array2.concat(prev,[value]))
       setNextId(prev=>prev+1)
-      Js.log(expenses)  
 }
 let loginHandler = (data:LoginState.t)=> {
 if(data.username!="" && data.password !="") {
@@ -42,16 +45,15 @@ if(data.username!="" && data.password !="") {
 }
 
  <div className="app">
-      // {!loginState?<LoginPage />: <div>
+      {!loginState?<LoginPage handleLogin= {loginHandler} loginState = {loginState} />: <div>
       
-      // <Header subtotal={subtotals} />
-      // <History expenses={expenses} onRemoveItem = {removeItemHandler} />
-      // <InputForm addItem ={addExpense} />
+      <Header subtotal={subtotals} />
+      <History expenses={expenses} onRemoveItem = {removeItemHandler} />
+      <InputForm addItem ={addExpense} />
       
 
-      //      </ div>
-      // }
-      <LoginPage handleLogin= {loginHandler} loginState = {loginState} />
+           </ div>
+      }
 
       </ div>
 

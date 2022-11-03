@@ -1,9 +1,6 @@
-type expense = {id:int,title:string,amount:float}
-type subtotals = {income:float,expense:float}
 
-type expenses = array<expense>
 
-type data = {title:string,amount:float}
+
 
 @react.component
 let make = (~amount:float) =>{

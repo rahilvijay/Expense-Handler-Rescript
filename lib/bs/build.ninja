@@ -4,7 +4,7 @@ rule astj
   command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
 o src/App.ast : astj ../../src/App.res
 rule deps
-  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 792a114df71b1975b927d002c1a3737a $in
+  command = /Users/rahilvijay/Desktop/rescript/Expense-Handler/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 73e8b3cec2dad73b5755b8a8e41cb944 $in
   restat = 1
 o src/App.d : deps src/App.ast
 rule mij
@@ -12,6 +12,9 @@ rule mij
   dyndep = 1
   restat = 1
 o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/Components/StaticText.ast : astj ../../src/Components/StaticText.res
+o src/Components/StaticText.d : deps src/Components/StaticText.ast
+o src/Components/StaticText.cmj src/Components/StaticText.cmi ../../src/Components/StaticText.bs.js : mij src/Components/StaticText.ast
 o src/Components/HistoryCard/History.ast : astj ../../src/Components/HistoryCard/History.res
 o src/Components/HistoryCard/History.d : deps src/Components/HistoryCard/History.ast
 o src/Components/HistoryCard/History.cmj src/Components/HistoryCard/History.cmi ../../src/Components/HistoryCard/History.bs.js : mij src/Components/HistoryCard/History.ast
@@ -30,6 +33,12 @@ o src/Components/Header/DetailWidget.cmj src/Components/Header/DetailWidget.cmi 
 o src/Components/InputForm/InputForm.ast : astj ../../src/Components/InputForm/InputForm.res
 o src/Components/InputForm/InputForm.d : deps src/Components/InputForm/InputForm.ast
 o src/Components/InputForm/InputForm.cmj src/Components/InputForm/InputForm.cmi ../../src/Components/InputForm/InputForm.bs.js : mij src/Components/InputForm/InputForm.ast
+o src/Components/InputForm/InputState.ast : astj ../../src/Components/InputForm/InputState.res
+o src/Components/InputForm/InputState.d : deps src/Components/InputForm/InputState.ast
+o src/Components/InputForm/InputState.cmj src/Components/InputForm/InputState.cmi ../../src/Components/InputForm/InputState.bs.js : mij src/Components/InputForm/InputState.ast
+o src/Components/InputForm/ReducerAction.ast : astj ../../src/Components/InputForm/ReducerAction.res
+o src/Components/InputForm/ReducerAction.d : deps src/Components/InputForm/ReducerAction.ast
+o src/Components/InputForm/ReducerAction.cmj src/Components/InputForm/ReducerAction.cmi ../../src/Components/InputForm/ReducerAction.bs.js : mij src/Components/InputForm/ReducerAction.ast
 o src/Components/LoginPage/LoginPage.ast : astj ../../src/Components/LoginPage/LoginPage.res
 o src/Components/LoginPage/LoginPage.d : deps src/Components/LoginPage/LoginPage.ast
 o src/Components/LoginPage/LoginPage.cmj src/Components/LoginPage/LoginPage.cmi ../../src/Components/LoginPage/LoginPage.bs.js : mij src/Components/LoginPage/LoginPage.ast
@@ -39,6 +48,15 @@ o src/Components/LoginPage/LoginState.cmj src/Components/LoginPage/LoginState.cm
 o src/Components/Types/Types.ast : astj ../../src/Components/Types/Types.res
 o src/Components/Types/Types.d : deps src/Components/Types/Types.ast
 o src/Components/Types/Types.cmj src/Components/Types/Types.cmi ../../src/Components/Types/Types.bs.js : mij src/Components/Types/Types.ast
+o src/Components/Types/Expense.ast : astj ../../src/Components/Types/Expense.res
+o src/Components/Types/Expense.d : deps src/Components/Types/Expense.ast
+o src/Components/Types/Expense.cmj src/Components/Types/Expense.cmi ../../src/Components/Types/Expense.bs.js : mij src/Components/Types/Expense.ast
+o src/Components/Types/InputData.ast : astj ../../src/Components/Types/InputData.res
+o src/Components/Types/InputData.d : deps src/Components/Types/InputData.ast
+o src/Components/Types/InputData.cmj src/Components/Types/InputData.cmi ../../src/Components/Types/InputData.bs.js : mij src/Components/Types/InputData.ast
+o src/Components/Types/Subtotals.ast : astj ../../src/Components/Types/Subtotals.res
+o src/Components/Types/Subtotals.d : deps src/Components/Types/Subtotals.ast
+o src/Components/Types/Subtotals.cmj src/Components/Types/Subtotals.cmi ../../src/Components/Types/Subtotals.bs.js : mij src/Components/Types/Subtotals.ast
 o src/Components/UI/Converter.ast : astj ../../src/Components/UI/Converter.res
 o src/Components/UI/Converter.d : deps src/Components/UI/Converter.ast
 o src/Components/UI/Converter.cmj src/Components/UI/Converter.cmi ../../src/Components/UI/Converter.bs.js : mij src/Components/UI/Converter.ast

@@ -2,20 +2,20 @@
 
 import * as React from "react";
 import * as Converter from "../UI/Converter.bs.js";
+import * as StaticText from "../StaticText.bs.js";
 
 import './DetailWidget.css';
 ;
 
 function DetailWidget(Props) {
   var subtotals = Props.subtotals;
-  console.log(subtotals.income);
   return React.createElement("div", {
               className: "display"
-            }, React.createElement("div", undefined, React.createElement("p", undefined, "INCOME"), React.createElement("p", {
+            }, React.createElement("div", undefined, React.createElement("p", undefined, StaticText.dtwHeading1), React.createElement("p", {
                       className: "income"
                     }, React.createElement(Converter.make, {
                           amount: subtotals.income
-                        }))), React.createElement("div", undefined, React.createElement("p", undefined, "EXPENSE"), React.createElement("p", {
+                        }))), React.createElement("div", undefined, React.createElement("p", undefined, StaticText.dtwHeading2), React.createElement("p", {
                       className: "expense"
                     }, React.createElement(Converter.make, {
                           amount: subtotals.expense

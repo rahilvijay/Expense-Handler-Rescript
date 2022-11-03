@@ -2,7 +2,7 @@
 
 
 @react.component
-let make =(~expenses:Types.expenses,~onRemoveItem) =>{
+let make =(~expenses:array<Expense.t>,~onRemoveItem) =>{
 
     <ul className="list">
     {Belt.Array.map(expenses,expense => {

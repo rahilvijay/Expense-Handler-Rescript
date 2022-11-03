@@ -4,7 +4,13 @@ import * as React from "react";
 
 function Converter(Props) {
   var amount = Props.amount;
-  return React.createElement("span", undefined, amount >= 0.0 ? "$" + amount.toFixed(2) + "" : "-$" + Math.abs(amount).toFixed(2) + "");
+  var rPosAmnt = function (amount) {
+    return "$" + amount.toFixed(2) + "";
+  };
+  var rNegAmnt = function (amount) {
+    return "-$" + Math.abs(amount).toFixed(2) + "";
+  };
+  return React.createElement("span", undefined, amount >= 0.0 ? rPosAmnt(amount) : rNegAmnt(amount));
 }
 
 var make = Converter;

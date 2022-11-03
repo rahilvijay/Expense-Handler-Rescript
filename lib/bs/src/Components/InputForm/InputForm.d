@@ -1,1 +1,1 @@
-src/Components/InputForm/InputForm.cmj : src/Components/Types/Types.cmj src/Components/Types/Types.cmi
+src/Components/InputForm/InputForm.cmj : src/Components/Types/InputData.cmj src/Components/Types/InputData.cmi src/Components/InputForm/InputState.cmj src/Components/InputForm/InputState.cmi src/Components/InputForm/ReducerAction.cmj src/Components/InputForm/ReducerAction.cmi src/Components/StaticText.cmj src/Components/StaticText.cmi

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Converter from "../UI/Converter.bs.js";
+import * as StaticText from "../StaticText.bs.js";
 import * as DetailWidget from "./DetailWidget.bs.js";
 
 import './Header.css';
@@ -12,9 +13,9 @@ function Header(Props) {
   var total = subtotal.income + subtotal.expense;
   return React.createElement("div", {
               className: "header"
-            }, React.createElement("h3", undefined, "Expense Tracker"), React.createElement("p", {
+            }, React.createElement("h3", undefined, StaticText.headerHeading), React.createElement("p", {
                   className: "header-para"
-                }, "Balance"), React.createElement("p", {
+                }, StaticText.headerText), React.createElement("p", {
                   className: "header-amount"
                 }, React.createElement(Converter.make, {
                       amount: total

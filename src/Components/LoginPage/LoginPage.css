@@ -16,15 +16,15 @@ margin: auto;
 label {
     font-size: 2rem;
 }
-input {
+.login-form input {
     width: 10rem;
     height: 3rem;
 }
-.warning-text {
+.login-form .warning-text {
     color:red;
 }
 
-button {
+.login-form button {
     background-color: blueviolet;
     color: white;
 }

@@ -3,25 +3,18 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import * as Belt_Float from "rescript/lib/es6/belt_Float.js";
+import * as InputState from "./InputState.bs.js";
+import * as StaticText from "../StaticText.bs.js";
 
 import './InputForm.css';
 ;
 
-var initialState = {
-  title: "",
-  amount: "",
-  titleState: false,
-  amountState: false,
-  amountTouched: false,
-  titleTouched: false
-};
-
 function reducer(state, action) {
   if (typeof action === "number") {
-    return initialState;
+    return InputState.intial;
   }
   switch (action.TAG | 0) {
-    case /* SetTitle */0 :
+    case /* SetRemarkValue */0 :
         return {
                 title: action._0,
                 amount: state.amount,
@@ -30,7 +23,7 @@ function reducer(state, action) {
                 amountTouched: state.amountTouched,
                 titleTouched: state.titleTouched
               };
-    case /* SetAmount */1 :
+    case /* SetAmountValue */1 :
         return {
                 title: state.title,
                 amount: action._0,
@@ -39,7 +32,7 @@ function reducer(state, action) {
                 amountTouched: state.amountTouched,
                 titleTouched: state.titleTouched
               };
-    case /* SetTitleState */2 :
+    case /* SetRemarkValidState */2 :
         if (action._0 !== "") {
           return {
                   title: state.title,
@@ -59,7 +52,7 @@ function reducer(state, action) {
                   titleTouched: state.titleTouched
                 };
         }
-    case /* SetAmountState */3 :
+    case /* SetAmountValidState */3 :
         if (Math.abs(action._0) > 0.0) {
           return {
                   title: state.title,
@@ -88,7 +81,7 @@ function reducer(state, action) {
                 amountTouched: action._0,
                 titleTouched: state.titleTouched
               };
-    case /* SetTitleTouchState */5 :
+    case /* SetRemarkTouchState */5 :
         return {
                 title: state.title,
                 amount: state.amount,
@@ -103,17 +96,17 @@ function reducer(state, action) {
 
 function InputForm(Props) {
   var addItem = Props.addItem;
-  var match = React.useReducer(reducer, initialState);
+  var match = React.useReducer(reducer, InputState.intial);
   var dispatch = match[1];
   var inputState = match[0];
   var onRemarkChangeHandler = function ($$event) {
     var value = $$event.target.value;
     Curry._1(dispatch, {
-          TAG: /* SetTitle */0,
+          TAG: /* SetRemarkValue */0,
           _0: value
         });
     Curry._1(dispatch, {
-          TAG: /* SetTitleState */2,
+          TAG: /* SetRemarkValidState */2,
           _0: value
         });
   };
@@ -122,22 +115,22 @@ function InputForm(Props) {
     var a = Belt_Float.fromString(value);
     var valueResolved = a !== undefined ? a : 0.0;
     Curry._1(dispatch, {
-          TAG: /* SetAmount */1,
+          TAG: /* SetAmountValue */1,
           _0: value
         });
     Curry._1(dispatch, {
-          TAG: /* SetAmountState */3,
+          TAG: /* SetAmountValidState */3,
           _0: valueResolved
         });
   };
   var onSubmitHandler = function ($$event) {
     $$event.preventDefault();
     Curry._1(dispatch, {
-          TAG: /* SetTitleTouchState */5,
+          TAG: /* SetRemarkTouchState */5,
           _0: true
         });
     Curry._1(dispatch, {
-          TAG: /* SetTitleTouchState */5,
+          TAG: /* SetRemarkTouchState */5,
           _0: true
         });
     if (inputState.titleState && inputState.amountState) {
@@ -151,7 +144,7 @@ function InputForm(Props) {
     }
     Curry._1(dispatch, /* SetInitial */0);
     Curry._1(dispatch, {
-          TAG: /* SetTitleTouchState */5,
+          TAG: /* SetRemarkTouchState */5,
           _0: true
         });
   };
@@ -164,21 +157,21 @@ function InputForm(Props) {
                   className: "warning"
                 }, !inputState.amountState && inputState.amountTouched ? "Please correct Input" : ""), React.createElement("div", {
                   className: "form-controls"
-                }, React.createElement("label", undefined, "Remark"), React.createElement("input", {
-                      placeholder: "Please Enter Remarks",
+                }, React.createElement("label", undefined, StaticText.inputFormLabel1), React.createElement("input", {
+                      placeholder: StaticText.inputFOrmPH1,
                       type: "text",
                       value: inputState.title,
                       onBlur: (function (param) {
                           Curry._1(dispatch, {
-                                TAG: /* SetTitleTouchState */5,
+                                TAG: /* SetRemarkTouchState */5,
                                 _0: true
                               });
                         }),
                       onChange: onRemarkChangeHandler
                     })), React.createElement("div", {
                   className: "form-controls"
-                }, React.createElement("label", undefined, "Amount"), React.createElement("p", undefined, "Please enter with a negative sign for expenses"), React.createElement("input", {
-                      placeholder: "Please Enter Amount",
+                }, React.createElement("label", undefined, StaticText.inputFormLabel2), React.createElement("p", undefined, StaticText.inputFormInfo), React.createElement("input", {
+                      placeholder: StaticText.inputFOrmPH2,
                       step: 0.01,
                       type: "number",
                       value: inputState.amount,
@@ -195,7 +188,6 @@ function InputForm(Props) {
 var make = InputForm;
 
 export {
-  initialState ,
   reducer ,
   make ,
 }

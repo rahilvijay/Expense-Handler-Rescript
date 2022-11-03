@@ -3,22 +3,24 @@
 
 
 @react.component
-let make = (~amount:float,~title:string,~id:int,~onRemoveItem) => {
+let make = (~amount:float,
+            ~title:string,~id:int,
+            ~onRemoveItem) => {
+                let incomeItemStyle = "item green";
+                let expenseItemStyle = "item red";
 
 let clickHandler = (e) => {
-        Js.log(id)
-                Js.log(e)
-
+      
         onRemoveItem(id)
     }
-    let stylesString:string = amount>0.0?"item green":"item red"
+    let stylesString1:string = amount>0.0? incomeItemStyle : expenseItemStyle
 
 
-    <li key ={id->Belt.Int.toString} className={stylesString}
+    <li key ={id->Belt.Int.toString} className={stylesString1}
       >
         <span>
-            <button onClick={clickHandler}>{React.string("x")}</button>
-            {title->React.string}</span>
+            <button onClick = {clickHandler}>{React.string("x")}</button>
+            {title -> React.string}</span>
         <span><Converter amount = {amount} /></span>
     </li>
 }
